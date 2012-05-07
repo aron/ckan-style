@@ -14,3 +14,4 @@ lsi:         false
 pygments:    true
 markdown:    kramdown
 permalink:   /:title
+kramdown:    {toc_levels: [2]}
