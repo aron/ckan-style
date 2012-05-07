@@ -9,9 +9,14 @@ HTML Style Guide
 Formatting
 ----------
 
-All HTML documents must use **two spaces** for indentation. XHTML syntax
-must be used (this is more a Genshi requirement) and all attributes must use
-double quotes around attributes.
+All HTML documents must use **two spaces** for indentation and there should be
+no trailing whitespace. XHTML syntax must be used (this is more a Genshi
+requirement) and all attributes must use double quotes around attributes.
+
+    <!-- XHTML boolean attributes must still have values and self closing tags must have a closing / -->
+    <video autoplay="autoplay" poster="poster_image.jpg">
+      <source src="foo.ogg" type="video/ogg" />
+    </video>
 
 HTML5 elements should be used where appropriate reserving `<div>` and `<span>`
 elements for situations where there is no semantic value (such as wrapping
