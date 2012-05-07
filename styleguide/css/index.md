@@ -10,7 +10,41 @@ Formatting
 ----------
 
 All CSS documents must use **two spaces** for indentation and files should have
-no trailing whitespace.
+no trailing whitespace. Other formatting rules:
+
+ - Use soft-tabs with a two space indent.
+ - Use double quotes.
+ - Use shorthand notation where possible.
+ - Put spaces after `:` in property declarations.
+ - Put spaces before `{` in rule declarations.
+ - Use hex color codes `#000` unless using `rgba()`.
+ - Always provide fallback properties for older browsers.
+ - Use one line per property declaration.
+ - Always follow a rule with one line of whitespace.
+ - Always quote `url()` and `@import()` contents.
+ - Do not indent blocks.
+
+For example:
+
+    .media {
+      overflow: hidden;
+      color: #fff;
+      background-color: #000; /* Fallback value */
+      background-image: linear-gradient(black, grey);
+    }
+
+    .media .img {
+      float: left;
+      border: 1px solid #ccc;
+    }
+
+    .media .img img {
+      display: block;
+    }
+
+    .media .content {
+      background: #fff url("../images/media-background.png") no-repeat;
+    }
 
 Naming
 ------
@@ -25,6 +59,24 @@ separation.
     .datasetlist {}
     .datasetList {}
     .dataset_list {}
+
+Comments
+--------
+
+Comments should be used liberally to explain anything that may be unclear at
+first glance, especially IE workarounds or hacks.
+
+    .prose p {
+      font-size: 1.1666em /* 14px / 12px */;
+    }
+
+    .ie7 .search-form {
+      /*
+        Force the item to have layout in IE7 by setting display to block.
+        See: http://reference.sitepoint.com/css/haslayout
+      */
+      display: inline-block;
+    }
 
 Modularity & Specificity
 ------------------------
