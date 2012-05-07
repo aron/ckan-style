@@ -172,6 +172,23 @@ Private methods should be prefixed with an underscore:
 Comments
 --------
 
+Comments should be used to explain anything that may be unclear when you return
+to it in six months time. Single line comments should be used for all inline
+comments that do not form part of the documentation.
+
+    // Export the function to either the exports or global object depending
+    // on the current environment. This can be either an AMD module, CommonJS
+    // module or a browser.
+    if (typeof module.define === 'function' && module.define.amd) {
+      module.define('broadcast', function () {
+        return Broadcast;
+      });
+    } else if (module.exports) {
+      module.exports = Broadcast;
+    } else {
+      module.Broadcast = Broadcast;
+    }
+
 JSHint
 ------
 
@@ -209,3 +226,4 @@ _TODO_
 Resources
 ---------
 
+_TODO_
