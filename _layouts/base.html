@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <title>{{ page.title }}{% if page.subtitle %} &bull; {{ page.subtitle }}{% endif %}</title>
+    <title>{% if page.subtitle %}{{ page.subtitle }} &bull; {% endif %}{{ page.title }}</title>
     <link rel="stylesheet" href="{{ site.baseurl }}css/global.css" />
   </head>
   <body>
