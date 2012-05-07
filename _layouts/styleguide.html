@@ -1,15 +1,16 @@
 ---
-title:  CKAN Style Guides
-layout: base
+title:   CKAN Style Guides
+layout:  base
 ---
+{% capture url %}{{ site.baseurl }}styleguide/{% endcapture %}
 <header>
-  <h1>{{ page.title }}</h1>
+  <h1><a href="{{ url }}">{{ page.title }}</a></h1>
   <p>CKAN styles for HTML, CSS &amp; JavaScript</p>
   <p class="view"><a href="http://github.com/okfn/ckan">Contribute via GitHub <small>github.com/okfn/ckan</small></a></p>
   <ul>
-    <li><a href="{{ site.baseurl }}styleguide/html/">View <strong>HTML</strong></a></li>
-    <li><a href="{{ site.baseurl }}styleguide/css/">View <strong>CSS</strong></a></li>
-    <li><a href="{{ site.baseurl }}styleguide/javascript/">View <strong>JavaScript</strong></a></li>
+    <li><a href="{{ url }}html/">View <strong>HTML</strong></a></li>
+    <li><a href="{{ url }}css/">View <strong>CSS</strong></a></li>
+    <li><a href="{{ url }}javascript/">View <strong>JavaScript</strong></a></li>
   </ul>
 </header>
 <section>
