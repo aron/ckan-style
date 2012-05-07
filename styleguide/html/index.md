@@ -6,6 +6,9 @@ layout: styleguide
 HTML Style Guide
 ================
 
+- Table of Contents
+{:toc}
+
 Formatting
 ----------
 

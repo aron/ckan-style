@@ -45,6 +45,7 @@ and their contents.
       }
       return url;
     }
+{:js}
 
 _NOTE: See section 2.D.1.1 of idiomatic for more examples of this syntax._
 
@@ -54,6 +55,7 @@ Single quotes should be used everywhere unless writing JSON or the string
 contains them. This makes it easier to create strings containing HTML.
 
     jQuery('<div id="my-div" />').appendTo('body');
+{:js}
 
 Object properties need not be quoted unless required by the compiler.
 
@@ -61,6 +63,7 @@ Object properties need not be quoted unless required by the compiler.
       name: 'bill',
       'class': 'user-name'
     };
+{:js}
 
 ### Variable declarations
 
@@ -91,6 +94,7 @@ statement may be used but it will not be enforced.
     okay = [
       "hmm", "also", "better"
     ];
+{:js}
 
 However all variables must be declared at the top of the function in which
 they are first used.
@@ -118,6 +122,7 @@ they are first used.
       sorted = names.sort();
       return sorted;
     }
+{:js}
 
 [#okf]: http://wiki.okfn.org/Coding_Standards#Javascript
 [#crock]: http://javascript.crockford.com/code.html
@@ -133,11 +138,13 @@ All properties, functions and methods must use lowercase camelCase:
     var methods = {
       getSomething: function () {}
     };
+{:js}
 
 Constructor functions must use uppercase CamelCase:
 
     function DatasetSearchView() {
     }
+{:js}
 
 Constants must be uppercase with spaces delimited by underscores:
 
@@ -146,11 +153,14 @@ Constants must be uppercase with spaces delimited by underscores:
       DEVELOPMENT: 'development',
       TESTING:     'testing'
     };
+{:js}
 
 Event handlers and callback functions should be prefixed with "on":
 
     function onDownloadClick(event) {}
+
     jQuery('.download').click(onDownloadClick);
+{:js}
 
 Boolean variables or methods returning boolean functions should prefix
 the variable name with "is":
@@ -158,6 +168,7 @@ the variable name with "is":
     function isAdmin() {}
 
     var canEdit = isUser() && isAdmin();
+{:js}
 
 _Alternatives are "has", "can" and "should" if they make more sense_
 
@@ -168,6 +179,7 @@ Private methods should be prefixed with an underscore:
       _onClick: function (event) {
       }
     });
+{:js}
 
 Comments
 --------
@@ -188,6 +200,7 @@ comments that do not form part of the documentation.
     } else {
       module.Broadcast = Broadcast;
     }
+{:js}
 
 JSHint
 ------
@@ -227,3 +240,5 @@ Resources
 ---------
 
 _TODO_
+
+{:js: data-code="js"}

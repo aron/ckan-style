@@ -6,6 +6,9 @@ layout: styleguide
 CSS Style Guide
 ===============
 
+- Table of Contents
+{:toc}
+
 Formatting
 ----------
 
@@ -45,6 +48,7 @@ For example:
     .media .content {
       background: #fff url("../images/media-background.png") no-repeat;
     }
+{:css}
 
 Naming
 ------
@@ -59,6 +63,7 @@ separation.
     .datasetlist {}
     .datasetList {}
     .dataset_list {}
+{:css}
 
 Comments
 --------
@@ -77,6 +82,7 @@ first glance, especially IE workarounds or hacks.
       */
       display: inline-block;
     }
+{:css}
 
 Modularity & Specificity
 ------------------------
@@ -88,6 +94,7 @@ having too many selectors in one declaration to make them easy to override.
     ul#dataset-list {}
     ul#dataset-list li {}
     ul#dataset-list li p a.download {}
+{:css}
 
 Instead here we would create a dataset "module" and styling the item outside of
 the container allows you to use it on it's own e.g. on a dataset page:
@@ -95,6 +102,7 @@ the container allows you to use it on it's own e.g. on a dataset page:
     .dataset-list {}
     .dataset-list-item {}
     .dataset-list-item .download {}
+{:css}
 
 In the same vein use classes make the styles more robust, especially where the
 HTML may change. For example when styling social links:
@@ -104,6 +112,7 @@ HTML may change. For example when styling social links:
       <li><a href="">Facebook</a></li>
       <li><a href="">LinkedIn</a></li>
     </ul>
+{:css}
 
 You may use pseudo selectors to keep the HTML clean:
 
@@ -118,6 +127,7 @@ You may use pseudo selectors to keep the HTML clean:
     .social li:nth-child(3) a {
       background-image: url(linked-in.png);
     }
+{:css}
 
 However this will break any time the HTML changes for example if an item is
 added or removed. Instead we can use class names to ensure the icons always
@@ -134,17 +144,20 @@ match the elements (Also you'd probably sprite the image :).
     .social .linked-in {
       background-image: url(linked-in.png);
     }
+{:css}
 
 Avoid using tag names in selectors as this prevents re-use in other contexts.
 
     /* Cannot use this class on an <ol> or <div> element */
     ul.dataset-item {}
+{:css}
 
 Also ids should not be used in selectors as it makes it far too difficult to
 override later in the cascade.
 
     /* Cannot override this button style without including an id */
     .btn#download {}
+{:css}
 
 Resources
 ---------
@@ -162,3 +175,5 @@ than actual how-to style guides._
 [#smacss]: http://smacss.com
 [#grownups]: http://schedule.sxsw.com/2012/events/event_IAP9410
 [#grownups-slides]: http://speakerdeck.com/u/andyhume/p/css-for-grown-ups-maturing-best-practises
+
+{:css: data-code="css"}
