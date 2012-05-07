@@ -124,6 +124,54 @@ they are first used.
 [#ideo]: https://github.com/rwldrn/idiomatic.js/
 [#var]: http://benalman.com/news/2012/05/multiple-var-statements-javascript/
 
+Naming
+------
+
+All properties, functions and methods must use lowercase camelCase:
+
+    var myUsername = 'bill';
+    var methods = {
+      getSomething: function () {}
+    };
+
+Constructor functions must use uppercase CamelCase:
+
+    function DatasetSearchView() {
+    }
+
+Constants must be uppercase with spaces delimited by underscores:
+
+    var env = {
+      PRODUCTION:  'production',
+      DEVELOPMENT: 'development',
+      TESTING:     'testing'
+    };
+
+Event handlers and callback functions should be prefixed with "on":
+
+    function onDownloadClick(event) {}
+    jQuery('.download').click(onDownloadClick);
+
+Boolean variables or methods returning boolean functions should prefix
+the variable name with "is":
+
+    function isAdmin() {}
+
+    var canEdit = isUser() && isAdmin();
+
+_Alternatives are "has", "can" and "should" if they make more sense_
+
+Private methods should be prefixed with an underscore:
+
+    View.extend({
+      "click": "_onClick",
+      _onClick: function (event) {
+      }
+    });
+
+Comments
+--------
+
 JSHint
 ------
 
@@ -160,3 +208,4 @@ _TODO_
 
 Resources
 ---------
+
