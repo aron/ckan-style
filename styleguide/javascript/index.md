@@ -265,7 +265,15 @@ Best Practices
 
 ### Forms
 
-_TODO_
+All forms should work without JavaScript enabled. This means that they must
+submit `x-www-urlencoded` data to the server and receive an appropriate
+response. The server should check for the `X-Requested-With: XMLHTTPRequest`
+header to determine if the request is an ajax one. If so it can return an
+appropriate format, otherwise it should issue a 303 redirect.
+
+The one exception to this rule is if a form or button is injected with
+JavaScript after the page has loaded. It's then not part of the HTML document
+and can submit any data format it pleases.
 
 ### Ajax
 
