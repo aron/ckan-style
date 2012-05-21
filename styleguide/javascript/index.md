@@ -57,7 +57,7 @@ contains them. This makes it easier to create strings containing HTML.
     jQuery('<div id="my-div" />').appendTo('body');
 {:js}
 
-Object properties need not be quoted unless required by the compiler.
+Object properties need not be quoted unless required by the interpreter.
 
     var object = {
       name: 'bill',
@@ -67,44 +67,37 @@ Object properties need not be quoted unless required by the compiler.
 
 ### Variable declarations
 
-Idiomatic recommends using only one `var` statement per function. This is good
-advice but can be impractical in [some situations][#var], so one `var`
-statement may be used but it will not be enforced.
+One `var` statement must be used per variable assignment. These must be
+declared at the top of the function in which they are being used.
 
     // GOOD:
-    var good = "string",
-        alsoGood = "another;
+    var good = "string";
+    var alsoGood = "another;
+
+    // GOOD:
+    var good = "string";
+    var okay = [
+      "hmm", "a bit", "better"
+    ];
 
     // BAD:
     var good = "string",
         iffy = [
       "hmm", "not", "great"
     ];
-
-    // BETTER:
-    var good = "string";
-    var okay = [
-      "hmm", "a bit", "better"
-    ];
-
-    // ALTERNATIVELY
-    var good, okay;
-
-    good = "string";
-    okay = [
-      "hmm", "also", "better"
-    ];
 {:js}
 
-However all variables must be declared at the top of the function in which
-they are first used.
+Declare variables at the top of the function in which they are first used. This
+avoids issues with variable hoisting. If a variable is not assigned a value
+until later in the function then it it okay to define more than one per statement.
 
     // BAD: contrived example.
     function lowercaseNames(names) {
       var names = [];
 
       for (var index = 0, length = names.length; index < length; index += 1) {
-        names.push(names[index].toLowerCase());
+        var name = names[index];
+        names.push(name.toLowerCase());
       }
 
       var sorted = names.sort();
@@ -113,9 +106,11 @@ they are first used.
 
     // GOOD:
     function lowercaseNames(names) {
-      var names = [], index, sorted;
+      var names = [];
+      var index, sorted, name;
 
       for (index = 0, length = names.length; index < length; index += 1) {
+        name = names[index];
         names.push(names[index].toLowerCase());
       }
 
