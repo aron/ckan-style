@@ -324,6 +324,27 @@ as providing the user with adequate feedback that the page is doing something.
 Disabling the button prevents the form being submitted twice and the error
 feedback should hopefully offer a solution for the error that occurred.
 
+### Event Handlers
+
+When using event handlers to listen for browser events it's a common
+requirement to want to cancel the default browser action. This should be
+done by calling the `event.preventDefault()` method:
+
+    jQuery('button').click(function (event) {
+      event.preventDefault();
+    });
+
+It is also possible to return `false` from the callback function. Avoid doing
+this as it also calls the `event.stopPropagation()` method which prevents the
+event from bubbling up the DOM tree. This prevents other handlers listening
+for the same event. For example an analytics click handler attached to the
+`<body>` element.
+
+Also jQuery (1.7+) now provides the `.on()` and `.off()` methods as
+alternatives to `.bind()`, `.unbind()`, `.delegate()` and `.undelegate()`
+and they should be preferred for all tasks.
+
+
 ### Closures
 
 _TODO_
