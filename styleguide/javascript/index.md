@@ -238,17 +238,17 @@ within the _public_ directory and files should be structured accordingly.
 
 All files and directories should be lowercase with hyphens used to separate words.
 
- - _lib_: Should contain all application files. These can be structured
+ - __lib__: Should contain all application files. These can be structured
    appropriately. It is recommended that _main.js_ be used as the bootstrap
    filename that sets up the page.
- - _vendor_: Should contain all external dependencies. These should not contain
+ - __vendor__: Should contain all external dependencies. These should not contain
    version numbers in the filename. This information should be available in
    the header comment of the file. Library plugins should be prefixed with the
    library name. eg the hover intent jQuery plugin would have the filename
    _jquery.hover-intent.js_.
- - _templates_: Should be stored in a seperate directory and have the .html
+ - __templates__: Should be stored in a seperate directory and have the .html
    extension.
- - _test_: Contains the test runner _index.html_. _vendor_ contains all test
+ - __test__: Contains the test runner _index.html_. _vendor_ contains all test
    dependencies and libraries. _spec_ contains the actual test files. Each
    test file should be the filename with _-spec_ appended.
 
@@ -280,7 +280,7 @@ Best Practices
 ### Forms
 
 All forms should work without JavaScript enabled. This means that they must
-submit `x-www-urlencoded` data to the server and receive an appropriate
+submit `application/x-www-form-urlencoded` data to the server and receive an appropriate
 response. The server should check for the `X-Requested-With: XMLHTTPRequest`
 header to determine if the request is an ajax one. If so it can return an
 appropriate format, otherwise it should issue a 303 redirect.
