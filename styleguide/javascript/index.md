@@ -255,14 +255,17 @@ All files and directories should be lowercase with hyphens used to separate word
 JSHint
 ------
 
-All JavaScript should pass JSHint before being committed. This can be installed
-using `node` and `npm` by running:
+All JavaScript should pass [JSHint][#jshint] before being committed. This can
+be installed using `npm` (which is bundled with [node][#node]) by running:
 
     $ npm -g install jshint
 
 Each project should include a jshint.json file with appropriate configuration
 options for the tool. Most text editors can also be configured to read from
 this file.
+
+[#node]: http://nodejs.org
+[#jshint]: http://www.jshint.com
 
 Documentation
 -------------
@@ -354,10 +357,12 @@ event from bubbling up the DOM tree. This prevents other handlers listening
 for the same event. For example an analytics click handler attached to the
 `<body>` element.
 
-Also jQuery (1.7+) now provides the `.on()` and `.off()` methods as
+Also jQuery (1.7+) now provides the [`.on()`][#on] and [`.off()`][#off] methods as
 alternatives to `.bind()`, `.unbind()`, `.delegate()` and `.undelegate()`
 and they should be preferred for all tasks.
 
+[#on]: http://api.jquery.com/on/
+[#off]: http://api.jquery.com/off/
 
 ### Closures
 
