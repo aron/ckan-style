@@ -241,7 +241,14 @@ All files and directories should be lowercase with hyphens used to separate word
 JSHint
 ------
 
-_TODO_
+All JavaScript should pass JSHint before being committed. This can be installed
+using `node` and `npm` by running:
+
+    $ npm -g install jshint
+
+Each project should include a jshint.json file with appropriate configuration
+options for the tool. Most text editors can also be configured to read from
+this file.
 
 Documentation
 -------------
