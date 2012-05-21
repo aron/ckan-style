@@ -176,6 +176,20 @@ Private methods should be prefixed with an underscore:
     });
 {:js}
 
+Functions should be declared as named functions rather than assigning an
+anonymous function to a variable.
+
+    // GOOD:
+    function getName() {
+    }
+
+    // BAD:
+    var getName = function () {
+    };
+
+Named functions are generally easier to debug as they appear named in the
+debugger.
+
 Comments
 --------
 
