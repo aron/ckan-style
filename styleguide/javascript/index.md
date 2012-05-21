@@ -277,7 +277,52 @@ and can submit any data format it pleases.
 
 ### Ajax
 
-_TODO_
+Ajax requests can be used to improve the experience of submitting forms and
+other actions that require server interactions. Nearly all requests will
+go through the following states.
+
+ 1.  User clicks button.
+ 2.  JavaScript intercepts the click and disables the button (add `disabled`
+     attr).
+ 3.  A loading indicator is displayed (add class `.loading` to button).
+ 4.  The request is made to the server.
+ 5a. On success the interface is updated.
+ 5b. On error a message is displayed to the user if there is no other way to
+     resolve the issue.
+ 6.  The loading indicator is removed.
+ 7.  The button is re-enabled.
+
+Here's a possible example for submitting a search form using jQuery.
+
+    jQuery('#search-form').submit(function (event) {
+      var form = $(this);
+      var button = form.find('[type=submit]');
+
+      // Prevent the browser submitting the form.
+      event.preventDefault();
+
+      button.prop('disabled', true).addClass('loading');
+
+      jQuery.ajax({
+        type: this.method,
+        data: form.serialize(),
+        success: function (results) {
+          updatePageWithResults(results);
+        },
+        error: function () {
+          showSearchError('Sorry we were unable to complete this search');
+        },
+        complete: function () {
+          button.prop('disabled', false).removeClass('loading');
+        }
+      });
+    });
+{:js}
+
+This covers possible issues that might arise from submitting the form as well
+as providing the user with adequate feedback that the page is doing something.
+Disabling the button prevents the form being submitted twice and the error
+feedback should hopefully offer a solution for the error that occurred.
 
 ### Closures
 
