@@ -197,6 +197,47 @@ comments that do not form part of the documentation.
     }
 {:js}
 
+File Structure
+--------------
+
+All public JavaScript files should be contained within a _javascript_ directory
+within the _public_ directory and files should be structured accordingly.
+
+    lib/
+      main.js
+      utils.js
+      components/
+    vendor/
+      jquery.js
+      jquery.plugin.js
+      underscore.js
+    templates/
+    test/
+      index.html
+      spec/
+        main-spec.js
+        utils-spec.js
+      vendor/
+        mocha.js
+        mocha.css
+        chai.js
+
+All files and directories should be lowercase with hyphens used to separate words.
+
+ - _lib_: Should contain all application files. These can be structured
+   appropriately. It is recommended that _main.js_ be used as the bootstrap
+   filename that sets up the page.
+ - _vendor_: Should contain all external dependencies. These should not contain
+   version numbers in the filename. This information should be available in
+   the header comment of the file. Library plugins should be prefixed with the
+   library name. eg the hover intent jQuery plugin would have the filename
+   _jquery.hover-intent.js_.
+ - _templates_: Should be stored in a seperate directory and have the .html
+   extension.
+ - _test_: Contains the test runner _index.html_. _vendor_ contains all test
+   dependencies and libraries. _spec_ contains the actual test files. Each
+   test file should be the filename with _-spec_ appended.
+
 JSHint
 ------
 
